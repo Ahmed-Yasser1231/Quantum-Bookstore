@@ -1,54 +1,95 @@
-Quantum Book Store
+# Quantum Book Store
 
-Project Description
-The Quantum Book Store is an extensible Java-based application designed to manage an online bookstore. It supports multiple types of books, including paper books, eBooks, and demo books. The system allows adding books to inventory, removing outdated books, and purchasing books with specific handling for each type.
+The **Quantum Book Store** is a Java-based application designed to manage an online bookstore. It supports multiple book types and provides functionality to add, remove, and purchase books, with specific handling logic based on the book type.
 
-Features
-- Book Types:
-  - Paper Book: Physical books with stock that can be shipped.
-  - EBook: Digital books with file types that can be sent via email.
-  - Demo Book: Showcase books that are not for sale.
-- Inventory Management:
-  - Add books to the inventory.
-  - Remove outdated books based on their age.
-- Purchase Functionality:
-  - Buy books by providing ISBN, quantity, email, and address.
-  - Handle stock reduction for paper books.
-  - Send eBooks via email.
-  - Throw errors for unsupported operations or unavailable stock.
+---
 
-Project Structure
+## 📚 Features
+
+### ✅ Book Types
+- **Paper Book**: Physical books with stock management and shipping support.
+- **EBook**: Digital books (e.g., PDF) sent via email.
+- **Demo Book**: Showcase-only books that are not available for sale.
+
+### 🧰 Inventory Management
+- Add books to the inventory.
+- Remove outdated books based on their age.
+
+### 🛒 Purchase Functionality
+- Buy books using their ISBN.
+- Automatically handle stock reduction for paper books.
+- Send eBooks via email to the customer.
+- Throw exceptions for unsupported operations or unavailable stock.
+
+---
+
+## 🗂️ Project Structure
+
+```
 src/
-├── Book.java                # Abstract base class for all book types
-├── PaperBook.java           # Class for paper books
-├── EBook.java               # Class for eBooks
-├── DemoBook.java            # Class for demo books
-├── QuantumBookStore.java    # Main class for managing the bookstore
-├── Main.java                # Entry point for testing the bookstore functionality
+├── Book.java             # Abstract base class for all book types
+├── PaperBook.java        # Implementation for paper books
+├── EBook.java            # Implementation for eBooks
+├── DemoBook.java         # Implementation for demo books
+├── QuantumBookStore.java # Bookstore logic: add, remove, purchase
+├── Main.java             # Entry point for testing
+```
 
-How to Run
-1. Clone the repository to your local machine.
-2. Open the project in IntelliJ IDEA or any Java IDE.
-3. Run the Main.java file to test the functionality.
+---
 
-Example Usage
-Adding Books
+## 🚀 Getting Started
+
+### Prerequisites
+- **Java 8** or higher
+- **IntelliJ IDEA** or any Java-compatible IDE
+
+### How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/Quantum-Bookstore.git
+   ```
+2. Open the project in your IDE.
+3. Run the `Main.java` file to test the functionality.
+
+---
+
+## 💡 Example Usage
+
+### Adding Books
+```java
 store.addBook(new PaperBook("123", "Java Basics", "2022", 20.0, 10));
 store.addBook(new EBook("456", "Advanced Java", "2020", 15.0, "PDF"));
 store.addBook(new DemoBook("789", "Java Showcase", "2023", 5.0));
+```
 
-Removing Outdated Books
+### Removing Outdated Books
+```java
 store.removeOutdatedBook(10);
+```
 
-Buying Books
+### Buying Books
+```java
 double amount = store.buyBook("123", 2, "customer@example.com", "123 Main St");
 System.out.println("Paid amount: $" + amount);
+```
 
-Requirements
-- Java 8 or higher
-- IntelliJ IDEA or any Java IDE
+---
 
-Extensibility
-The system is designed to be easily extensible. To add a new type of product:
-1. Create a new class extending the Book class.
-2. Implement the buy method with specific behavior for the new product type.
+## 🧱 Extensibility
+
+The system is designed with extensibility in mind. To add a new product type:
+1. Create a new class extending `Book`.
+2. Implement the `buy` method with the new product's custom behavior.
+
+---
+
+## 📜 License
+
+This project is for educational/demo purposes. Feel free to modify and use it in your own learning projects.
+
+---
+
+## 👨‍💻 Author
+
+**Ahmed Yasser**  
+Feel free to connect via [GitHub](https://github.com/Ahmed-Yasser1231)
